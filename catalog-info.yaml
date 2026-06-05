@@ -2,6 +2,8 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: chat-application
+  annotations:
+    github.com/project-slug: udhayakiran-stack/chatApplication
   description: Angular chat application
 spec:
   type: website
