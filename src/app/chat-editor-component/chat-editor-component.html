@@ -1,0 +1,20 @@
+<div class="chat-editor">
+
+  <quill-editor
+    [(ngModel)]="message"
+    [modules]="modules"
+    format="html"
+    placeholder="Type a message..."
+    (onEditorCreated)="onEditorCreated($event)"
+    (keydown)="onKeyDown($event)">
+  </quill-editor>
+<label for="textFile" style="cursor: pointer;">📁</label>
+<input id="textFile" (change)="onFileSelected($event)" type="file" style="display: none;">
+  <button
+    type="button"
+    class="btn btn-primary send-btn"
+    (click)="send()">
+    Send
+  </button>
+
+</div>

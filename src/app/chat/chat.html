@@ -1,0 +1,100 @@
+<div class="modal-backdrop-custom" *ngIf="appState.showEmailPopup">
+    <div class="card shadow p-4 popup-card">
+        <h4 class="text-center mb-4">Personal Details</h4>
+
+        <div class="mb-3">
+            <input type="text" (keyup.enter)="submitEmail()" class="form-control" [(ngModel)]="name"
+                placeholder="Enter your name">
+        </div>
+
+        <div class="mb-3">  
+            <input type="email" (keyup.enter)="submitEmail()" class="form-control" [(ngModel)]="email"
+                placeholder="Enter your email">
+        </div>
+
+        <button class="btn btn-primary w-100" (click)="submitEmail()">
+            Submit
+        </button>
+    </div>
+</div>
+
+<div *ngIf="!appState.showEmailPopup">
+    <div class="d-flex justify-content-center border-bottom p-1" style="background-color: #cccce5;">
+        Current User: {{user_details.email}}
+    </div>
+    <div class="d-flex gap-2 h-100">
+        <div class="sidebar">
+            <h4 class="p-2">Users</h4>
+
+            <div class="users-list">
+                <ng-container *ngFor="let user of allUserDetail">
+                    <div class="user-item d-flex justify-content-between" *ngIf="user.email !== user_details.email" (click)="setActive(user.email)"
+                        [class.active]="user.email === activeUserEmail">
+                        <div class="">
+                            <div class="name">{{ user.name }}</div>
+                            <div class="email">{{ user.email }}</div>
+                        </div>
+                        <div>
+                              <span class="notification-badge" *ngIf="user.count > 0">
+                            {{ user.count }}
+                        </span>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <div class="chat-box">
+            <div class="messages">
+                <div *ngFor="let msg of messages" [class.me]="msg.from === user_details.email" class="msg">
+                    <div [innerHTML]="msg.text"></div>
+                    <!-- <span class="myMessage">{{ msg.text }}</span> -->
+                </div>
+            </div>
+
+            <div class="input-box align-items-center gap-1">
+                <app-chat-editor-component class="w-100" (sendMessage)="send($event)">
+                </app-chat-editor-component>
+                <!--<input type="text"  class="border" style="border-radius: 5px;" [(ngModel)]="message"
+                    placeholder="Type a message..." (keyup.enter)="sendMessage()" /> -->
+                <div class="ai-wrapper" cdkDrag>
+                    <div class="ai-dropdown" *ngIf="isOpen">
+                        <div class="ai-header">
+                            <h4>🤖 Ask AI</h4>
+                            <button class="close-btn" (click)="toggleDropdown()">✕</button>
+                        </div>
+                        <div class="input-section">
+                            <input type="text" [(ngModel)]="question" placeholder="Ask anything..."
+                                (keyup.enter)="submit()" />
+
+                            <button class="submit-btn" (click)="submit()" [disabled]="loading || !question">
+                                {{ loading ? 'Thinking...' : 'Send' }}
+                            </button>
+                        </div>
+
+                        <div class="loader" *ngIf="loading">
+                            <div class="spinner"></div>
+                        </div>
+
+                        <div class="response-box" *ngIf="response">
+                            <div class="response-content">
+                                <markdown [data]="response"></markdown>
+                                <!-- {{ response }} -->
+                            </div>  
+
+                            <button class="copy-btn" (click)="copyResponse()">
+                                📋 {{ copyMessage }}
+                            </button>
+                        </div>
+                    </div>
+                    <button class="ask-btn" cdkDragHandle (click)="toggleDropdown()">
+                        🤖
+                    </button>
+
+                </div>
+                
+                <!-- <button class="btn btn-primary" style="margin: unset;" (click)="sendMessage()">Send</button> -->
+            </div>
+
+        </div>
+    </div>
+</div>

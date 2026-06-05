@@ -1,0 +1,102 @@
+/* You can add global styles to this file, and also import other style files *//* ===== QUILL CHAT FIX (WORKING) ===== */
+
+quill-editor {
+  display: block;
+  width: 100%;
+}
+
+/* editor box */
+.ql-container {
+  min-height: 45px !important;
+  max-height: 120px;
+  border-radius: 20px !important;
+  border: 1px solid #ddd !important;
+  background: #fafafa;
+}
+
+/* text area */
+.ql-editor {
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+
+/* focus */
+.ql-container:focus-within {
+  border-color: #4f46e5 !important;
+  background: white;
+}
+
+/* scrollbar */
+.ql-editor::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ql-editor::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 10px;
+}
+
+/* =========================
+   QUILL TOOLBAR STYLING
+   ========================= */
+
+.ql-toolbar.ql-snow {
+  border: 1px solid #e5e7eb !important;
+  border-bottom: none !important;
+  border-radius: 12px 12px 0 0;
+  background: #f9fafb;
+  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* toolbar button group spacing */
+.ql-toolbar.ql-snow .ql-formats {
+  margin-right: 8px;
+}
+
+/* buttons */
+.ql-toolbar button {
+  width: 28px;
+  height: 28px;
+  padding: 4px;
+  border-radius: 6px;
+  transition: 0.2s ease;
+}
+
+/* hover effect */
+.ql-toolbar button:hover {
+  background: #e0e7ff;
+}
+
+/* active button */
+.ql-toolbar button.ql-active {
+}
+
+/* icon size */
+.ql-toolbar button svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* dropdowns (lists, alignment) */
+.ql-toolbar .ql-picker {
+  font-size: 12px;
+}
+
+.ql-toolbar .ql-picker-label {
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+/* dropdown hover */
+.ql-toolbar .ql-picker-label:hover {
+  background: #e0e7ff;
+}
+
+/* fix border alignment with editor */
+.ql-container.ql-snow {
+  border-radius: 0 0 12px 12px !important;
+}

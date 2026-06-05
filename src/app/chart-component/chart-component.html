@@ -1,0 +1,23 @@
+<highcharts-chart
+  [constructorType]="'chart'"
+  [options]="chartOptions"
+  [oneToOne]="true"
+  style="width:100%; height:400px; display:block;">
+</highcharts-chart>
+
+<form [formGroup]="chartForm" (ngSubmit)="onSubmit()">
+    
+    <div>
+      <label for="month">Month:</label>
+      <input id="month" type="text" formControlName="month">
+    </div>
+
+    <div>
+      <label for="value">Value:</label>
+      <input id="value" type="number" formControlName="value">
+    </div>
+    <button type="submit" [disabled]="chartForm.invalid">Submit</button>
+
+  </form>
+
+  <highcharts-chart [constructorType]="'chart'" [options]="chartOptions1"  style="width: 100%; height: 400px; display: block;"></highcharts-chart>

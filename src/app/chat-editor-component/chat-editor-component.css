@@ -1,0 +1,83 @@
+.chat-editor {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  width: 100%;
+}
+
+quill-editor {
+  flex: 1;
+}
+
+/* Main editor box */
+::ng-deep .ql-container {
+  min-height: 44px;
+  max-height: 140px;
+  overflow-y: auto;
+  border-radius: 18px;
+  border: 1px solid #ddd !important;
+  font-size: 14px;
+  background: #fafafa;
+}
+
+/* Focus state */
+::ng-deep .ql-container.ql-snow {
+  transition: 0.2s ease;
+}
+
+::ng-deep .ql-container:focus-within {
+  border-color: #4f46e5 !important;
+  background: #fff;
+}
+
+/* Editor text area */
+::ng-deep .ql-editor {
+  padding: 10px 14px;
+  min-height: 44px;
+  max-height: 140px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+
+
+/* Placeholder styling */
+::ng-deep .ql-editor.ql-blank::before {
+  color: #999;
+  font-style: normal;
+}
+
+/* Send button */
+.send-btn {
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease;
+}
+
+.send-btn:hover {
+  transform: scale(1.05);
+}
+
+.send-btn:active {
+  transform: scale(0.95);
+}
+
+/* Scrollbar styling inside editor */
+::ng-deep .ql-editor::-webkit-scrollbar {
+  width: 6px;
+}
+
+::ng-deep .ql-editor::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+::ng-deep .ql-editor::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}

@@ -1,0 +1,22 @@
+.navbar {
+  background-color: #1976d2;
+  padding: 15px;
+  display: flex;
+  gap: 20px;
+  justify-content: end;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.navbar a.active {
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+
+.container {
+  padding: 20px;
+}
