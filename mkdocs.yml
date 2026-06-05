@@ -1,0 +1,3 @@
+site_name: chat-application
+nav:
+  - Home: docs/index.md
