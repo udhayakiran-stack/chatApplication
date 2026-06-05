@@ -5,7 +5,7 @@ metadata:
   description: Angular chat application
   annotations:
     github.com/project-slug: udhayakiran-stack/chatApplication
-    backstage.io/techdocs-ref: dir:.
+    backstage.io/techdocs-ref: dir:./docs
 spec:
   type: website
   lifecycle: development
