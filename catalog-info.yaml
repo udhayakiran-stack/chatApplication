@@ -8,5 +8,5 @@ metadata:
     backstage.io/techdocs-ref: dir:.
 spec:
   type: website
-  lifecycle: development
-  owner: guests
+  lifecycle: experimental
+  owner: udhayakiran-stack
